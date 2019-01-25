@@ -1,0 +1,92 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="TuyenXe">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> TuyenXe </th>
+    <td mat-cell *matCellDef="let element"> {{element.TuyenXe}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="MaXe">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> MaXe </th>
+    <td mat-cell *matCellDef="let element"> {{element.MaXe}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="GiaoVu">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> GiaoVu </th>
+    <td mat-cell *matCellDef="let element"> {{element.GiaoVu}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TaiXe">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> TaiXe </th>
+    <td mat-cell *matCellDef="let element"> {{element.TaiXe}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="SoLuongHS">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> SoLuongHS </th>
+    <td mat-cell *matCellDef="let element"> {{element.SoLuongHS}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+<hr>
+
+<ul id="menu1" class="nav nav-tabs" id="tranport-menu1" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="gio-1-tab" data-toggle="tab" href="#gio-1" role="tab" aria-controls="gio-1"
+      aria-selected="true">Gio 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="gio-2-tab" data-toggle="tab" href="#gio-2" role="tab" aria-controls="gio-2" aria-selected="false">Gio
+      2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="gio-3-tab" data-toggle="tab" href="#gio-3" role="tab" aria-controls="gio-3" aria-selected="false">Gio
+      3</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent1">
+  <div class="tab-pane fade show active" id="gio-1" role="tabpanel" aria-labelledby="gio-1-tab">
+    1
+  </div>
+  <div class="tab-pane fade" id="gio-2" role="tabpanel" aria-labelledby="gio-2-tab">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="TuyenXe">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> TuyenXe </th>
+        <td mat-cell *matCellDef="let element"> {{element.TuyenXe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="MaXe">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> MaXe </th>
+        <td mat-cell *matCellDef="let element"> {{element.MaXe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="GiaoVu">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> GiaoVu </th>
+        <td mat-cell *matCellDef="let element"> {{element.GiaoVu}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="TaiXe">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> TaiXe </th>
+        <td mat-cell *matCellDef="let element"> {{element.TaiXe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="SoLuongHS">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> SoLuongHS </th>
+        <td mat-cell *matCellDef="let element"> {{element.SoLuongHS}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  <div class="tab-pane fade" id="gio-3" role="tabpanel" aria-labelledby="gio-3-tab">3</div>
+</div>

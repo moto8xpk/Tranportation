@@ -1,0 +1,12 @@
+<p>Type of File : 
+
+    <ng-select  id="file-type"
+    name="file-type" placeholder="Select file type">              
+    
+        <ng-option *ngFor="let item of list" [value]="item ">{{item}}</ng-option>
+
+    </ng-select>
+</p>
+<p>
+  <input type='file' (change)="onSelectFile($event)">
+</p>

@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div id="logging-form" class="col-sm-12">
+        <h2>Notice Change</h2>
+      <form (ngSubmit)="onSubmit()" #noticeChangeForm="ngForm">
+        <!-- {{diagnostic}} -->
+        <div class="form-group">
+          <label for="exampleInputEmail1">Chọn Loại PT</label>
+          <input type="text" class="form-control" id="loaixe" [(ngModel)]="model.loaixe" name="loaixe" #loaixe="ngModel"
+            required placeholder="Enter Loai Xe">
+          <small id="emailHelp" class="form-text text-muted"></small>
+          <div *ngIf="loaixe.invalid && (loaixe.dirty || loaixe.touched)" class="alert alert-danger">
+              <div *ngIf="loaixe?.errors?.required">
+                  Loai Xe is required
+                </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="exampleInputEmail1">Loại thay đổi</label>
+            <input type="text" class="form-control" id="loaithaydoi" [(ngModel)]="model.loaithaydoi" name="loaithaydoi" #loaithaydoi="ngModel"
+              required placeholder="Enter Loai thay doi">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <div *ngIf="loaithaydoi.invalid && (loaithaydoi.dirty || loaithaydoi.touched)" class="alert alert-danger">
+                <div *ngIf="loaithaydoi?.errors?.required">
+                    Loai thay doi is required
+                  </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+              <label for="exampleInputEmail1">Lý do</label>
+              <input type="text" class="form-control" id="lydo" [(ngModel)]="model.lydo" name="lydo" #lydo="ngModel"
+                required placeholder="Enter Ly Do">
+              <small id="emailHelp" class="form-text text-muted"></small>
+              <div *ngIf="lydo.invalid && (lydo.dirty || lydo.touched)" class="alert alert-danger">
+                  <div *ngIf="lydo?.errors?.required">
+                      Ly do is required
+                    </div>
+              </div>
+            </div>
+  
+        <button type="submit" class="btn btn-primary" [disabled]='!noticeChangeForm.valid'>Submit</button>
+      </form>
+    </div>
+  </div>

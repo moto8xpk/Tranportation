@@ -1,0 +1,33 @@
+.nav-tabs{
+    background-color: #F44336 !important;
+}
+ul#tranport-menu{
+    border-radius: 10px !important;
+}
+
+
+.nav-link{
+    color: white;
+}
+a.nav-link.active{
+    background-color: darkgrey;
+    font-weight: bold;
+    
+}
+/* .nav-tabs .nav-link:hover{
+    border: none;
+} */
+.nav-tabs .nav-link{
+    border: none;
+}
+
+.nav-link:hover{
+    color: darkturquoise;
+}
+table {
+    width: 100%;
+  }
+.mat-form-field {
+   font-size: 14px;
+   width: 100%;
+}  
