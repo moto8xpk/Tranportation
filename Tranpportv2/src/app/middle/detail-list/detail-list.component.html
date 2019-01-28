@@ -1,3 +1,149 @@
-<p>
-  detail-list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+
+    <form (ngSubmit)="onSubmit()" #DetailForm="ngForm">
+      <!-- {{diagnostic}} -->
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tuyen Xe:</label>
+            <input type="text" class="form-control" id="tuyenXe" [(ngModel)]="model.tuyenXe" name="tuyenXe" #tuyenXe="ngModel"
+              required placeholder="Enter Tuyen Xe" [disabled]="true">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <div *ngIf="tuyenXe.invalid && (tuyenXe.dirty || tuyenXe.touched)" class="alert alert-danger">
+              <div *ngIf="tuyenXe?.errors?.required">
+                Tuyen Xe is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Ma Xe:</label>
+            <input type="text" class="form-control" id="maXe" [(ngModel)]="model.maXe" name="maXe" #maXe="ngModel"
+              required placeholder="Enter Ma Xe" [disabled]="true">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <div *ngIf="maXe.invalid && (maXe.dirty || maXe.touched)" class="alert alert-danger">
+              <div *ngIf="maXe?.errors?.required">
+                Ma Xe is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tai Xe</label>
+            <input type="text" class="form-control" id="taiXe" [(ngModel)]="model.taiXe" name="taiXe" #taiXe="ngModel"
+              required placeholder="Enter Tai Xe" [disabled]="true">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <div *ngIf="taiXe.invalid && (taiXe.dirty || taiXe.touched)" class="alert alert-danger">
+              <div *ngIf="taiXe?.errors?.required">
+                Tai Xe is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Giao Vu:</label>
+            <input type="text" class="form-control" id="giaoVu" [(ngModel)]="model.giaoVu" name="giaoVu" #giaoVu="ngModel"
+              required placeholder="Enter Giao Vu" [disabled]="true">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <div *ngIf="giaoVu.invalid && (giaoVu.dirty || giaoVu.touched)" class="alert alert-danger">
+              <div *ngIf="giaoVu?.errors?.required">
+                Giao Vu is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Gio:</label>
+            <input type="text" class="form-control" id="gio" [(ngModel)]="model.gio" name="gio" #gio="ngModel" required
+              placeholder="Enter Gio" [disabled]="true">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <div *ngIf="gio.invalid && (gio.dirty || gio.touched)" class="alert alert-danger">
+              <div *ngIf="gio?.errors?.required">
+                Gio is required
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <button id="submit-detail-form" type="submit" class="btn btn-primary" [disabled]='!DetailForm.valid'>Update</button> -->
+    </form>
+
+  </div>
+  <div class="row">
+    <!-- <div class="col-sm-6">
+
+      <h3>Danh Sach Hoc Sinh Cho</h3>
+      <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+          <tr>
+            <th class="text-center">Tuyen</th>
+            <th class="text-center">Bus Num</th>
+            <th class="text-center">Ten Hoc Sinh</th>
+            <th class="text-center">Trang Thai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataHS">
+            <td class="text-center">{{ item.TuyenXe }}</td>
+            <td class="text-center">{{ item.MaXe }}</td>
+            <td class="text-center">{{ item.TenHS }}</td>
+            <td class="text-center">
+              <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
+              <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
+              <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
+              <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
+              <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
+              <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div> -->
+    <div class="col-sm-12">
+      <h3>Danh Sach Hoc Sinh Trong Xe Moi</h3>
+      <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+          <tr>
+            <th class="text-center">Ma Hoc Sinh</th>
+            <th class="text-center">Ten Hoc Sinh</th>
+            <th class="text-center">Nick Name</th>
+            <th class="text-center">Trang Thai</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataHS">
+            <td class="text-center">{{ item.MaXe }}</td>
+            <td class="text-center">{{ item.TenHS }}</td>
+            <td class="text-center">{{ item.nickname }}</td>
+            <td class="text-center">
+              <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
+              <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
+              <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
+              <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
+              <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
+              <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+            </td>
+            
+            <td class="text-center">
+              <a (click)="onDeleteProduct(product.id)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

@@ -1,74 +1,59 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Tranport } from './../../../model/Trainport.model';
 import { from } from 'rxjs';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-buses-management',
   templateUrl: './buses-management.component.html',
   styleUrls: ['./buses-management.component.css']
 })
-export class BusesManagementComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+export class BusesManagementComponent implements OnDestroy, OnInit {
 
-  displayedColumns: string[] = ['TuyenXe', 'MaXe', 'TaiXe', 'GiaoVu', 'SoLuongHS'];
-  dataSource: MatTableDataSource<Tranport>;
-  selection = new SelectionModel<Tranport>(true, []);
-
+  dtOptions: DataTables.Settings = {};
+  tranport: Tranport[] = [];
+  // dtTrigger: Subject<Tranport> = new Subject();
+  data: any;
   constructor() {
-    const ELEMENT_DATA: Tranport[] = [
-      { TuyenXe: 1, MaXe: 1, SoLuongHS: 1, GiaoVu: 'H', TaiXe: 'Hydrogen' },
-      { TuyenXe: 2, MaXe: 2, SoLuongHS: 4, GiaoVu: 'He', TaiXe: 'Hydrogen' },
-      { TuyenXe: 3, MaXe: 3, SoLuongHS: 6, GiaoVu: 'Li', TaiXe: 'Hydrogen' },
-      { TuyenXe: 4, MaXe: 4, SoLuongHS: 9, GiaoVu: 'Be', TaiXe: 'Hydrogen' },
-      { TuyenXe: 5, MaXe: 5, SoLuongHS: 10, GiaoVu: 'B', TaiXe: 'Hydrogen' },
-      { TuyenXe: 6, MaXe: 6, SoLuongHS: 12, GiaoVu: 'C', TaiXe: 'Hydrogen' },
-      { TuyenXe: 7, MaXe: 7, SoLuongHS: 14, GiaoVu: 'N', TaiXe: 'Hydrogen' },
-      { TuyenXe: 8, MaXe: 8, SoLuongHS: 15, GiaoVu: 'O', TaiXe: 'Hydrogen' },
-      { TuyenXe: 9, MaXe: 9, SoLuongHS: 18, GiaoVu: 'F', TaiXe: 'Hydrogen' },
-      { TuyenXe: 10, MaXe: 10, SoLuongHS: 20, GiaoVu: 'Ne', TaiXe: 'Hydrogen' },
-      { TuyenXe: 1, MaXe: 1, SoLuongHS: 1, GiaoVu: 'H', TaiXe: 'Hydrogen' },
-      { TuyenXe: 2, MaXe: 2, SoLuongHS: 4, GiaoVu: 'He', TaiXe: 'Hydrogen' },
-      { TuyenXe: 3, MaXe: 3, SoLuongHS: 6, GiaoVu: 'Li', TaiXe: 'Hydrogen' },
-      { TuyenXe: 4, MaXe: 4, SoLuongHS: 9, GiaoVu: 'Be', TaiXe: 'Hydrogen' },
-      { TuyenXe: 5, MaXe: 5, SoLuongHS: 10, GiaoVu: 'B', TaiXe: 'Hydrogen' },
-      { TuyenXe: 6, MaXe: 6, SoLuongHS: 12, GiaoVu: 'C', TaiXe: 'Hydrogen' },
-      { TuyenXe: 7, MaXe: 7, SoLuongHS: 14, GiaoVu: 'N', TaiXe: 'Hydrogen' },
-      { TuyenXe: 8, MaXe: 8, SoLuongHS: 15, GiaoVu: 'O', TaiXe: 'Hydrogen' },
-      { TuyenXe: 9, MaXe: 9, SoLuongHS: 18, GiaoVu: 'F', TaiXe: 'Hydrogen' },
-      { TuyenXe: 10, MaXe: 10, SoLuongHS: 20, GiaoVu: 'Ne', TaiXe: 'Hydrogen' },
-    ];
 
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-   }
+  }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 8,
+      ordering: true,
+      retrieve: true,
+      autoWidth: true
+    };
+    this.data = [
+      { Chieu: 1, sttChieuDi: 1, sttChieuVe: 1},
+      { Chieu: 2, sttChieuDi: 2, sttChieuVe: 4},
+      { Chieu: 3, sttChieuDi: 3, sttChieuVe: 6},
+      { Chieu: 1, sttChieuDi: 4, sttChieuVe: 9},
+      { Chieu: 2, sttChieuDi: 5, sttChieuVe: 10},
+      { Chieu: 2, sttChieuDi: 6, sttChieuVe: 12},
+      { Chieu: 3, sttChieuDi: 7, sttChieuVe: 14},
+      { Chieu: 1, sttChieuDi: 8, sttChieuVe: 15},
+      { Chieu: 1, sttChieuDi: 9, sttChieuVe: 18},
+      { Chieu: 1, sttChieuDi: 10, sttChieuVe: 20},
+      { Chieu: 1, sttChieuDi: 1, sttChieuVe: 1},
+      { Chieu: 2, sttChieuDi: 2, sttChieuVe: 4},
+      { Chieu: 3, sttChieuDi: 3, sttChieuVe: 6},
+      { Chieu: 2, sttChieuDi: 4, sttChieuVe: 9},
+      { Chieu: 2, sttChieuDi: 5, sttChieuVe: 10},
+      { Chieu: 2, sttChieuDi: 6, sttChieuVe: 12},
+      { Chieu: 2, sttChieuDi: 7, sttChieuVe: 14},
+      { Chieu: 3, sttChieuDi: 8, sttChieuVe: 15},
+      { Chieu: 3, sttChieuDi: 9, sttChieuVe: 18},
+      { Chieu: 3, sttChieuDi: 10, sttChieuVe: 20},
+    ];
+    // this.dtTrigger.next();
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    // this.dtTrigger.unsubscribe();
   }
-
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-
 
 }

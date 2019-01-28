@@ -1,37 +1,43 @@
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<table id="datatable-auto" datatable [dtOptions]="dtOptions" class="row-border hover">
+  <thead>
+    <tr>
+      <th class="text-center">CODE</th>
+      <th class="text-center">Bus Num</th>
+      <th class="text-center">Time Start</th>
+      <th class="text-center">Time</th>
+      <th class="text-center"><i class="fa fa-user"></i> Fullname-Guard</th>
+      <th class="text-center"><i class="fa fa-user"></i> Driver</th>
+      <th class="text-center">Students Quatity</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td class="text-center">{{ item.TuyenXe }}</td>
+      <td class="text-center">{{ item.IdBus }}</td>
+      <td class="text-center">{{ item.timeStart }}</td>
+      <td class="text-center">{{ item.time }}</td>
+      <!-- <td  class="text-center">{{ item.MaXe }}</td> -->
+      <td class="text-center">{{ item.GiaoVu }}</td>
+      <td class="text-center">{{ item.TaiXe }}</td>
+      <td class="text-center">{{ item.SoLuongHS }}</td>
+      <td class="text-center">
+        <a (click)="onDeleteProduct(product.id)">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </a>
+        -
+        <a (click)="onUpdate(content,product.id)">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        -
+        <a (click)="changeTabDetailList(3)">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </a>
 
-  <ng-container matColumnDef="TuyenXe">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> TuyenXe </th>
-    <td mat-cell *matCellDef="let element"> {{element.TuyenXe}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="MaXe">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> MaXe </th>
-    <td mat-cell *matCellDef="let element"> {{element.MaXe}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="GiaoVu">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> GiaoVu </th>
-    <td mat-cell *matCellDef="let element"> {{element.GiaoVu}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="TaiXe">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> TaiXe </th>
-    <td mat-cell *matCellDef="let element"> {{element.TaiXe}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="SoLuongHS">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> SoLuongHS </th>
-    <td mat-cell *matCellDef="let element"> {{element.SoLuongHS}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
 <hr>
 
@@ -54,39 +60,121 @@
     1
   </div>
   <div class="tab-pane fade" id="gio-2" role="tabpanel" aria-labelledby="gio-2-tab">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-      <ng-container matColumnDef="TuyenXe">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> TuyenXe </th>
-        <td mat-cell *matCellDef="let element"> {{element.TuyenXe}} </td>
-      </ng-container>
 
-      <ng-container matColumnDef="MaXe">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> MaXe </th>
-        <td mat-cell *matCellDef="let element"> {{element.MaXe}} </td>
-      </ng-container>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <h3>Tuyen Xe</h3>
+          <p>Tuyen xe dang nghi: {{data.length}}</p>
+          <ng-select id="tuyenxe-table" name="file-type" placeholder="Select Tuyen Xe">
 
-      <ng-container matColumnDef="GiaoVu">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> GiaoVu </th>
-        <td mat-cell *matCellDef="let element"> {{element.GiaoVu}} </td>
-      </ng-container>
+            <ng-option *ngFor="let item of data" [value]="item ">{{item.GiaoVu}}</ng-option>
 
-      <ng-container matColumnDef="TaiXe">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> TaiXe </th>
-        <td mat-cell *matCellDef="let element"> {{element.TaiXe}} </td>
-      </ng-container>
+          </ng-select>
+          <button type="button" class="btn btn-primary">Them Tuyen Xe</button>
+        </div>
 
-      <ng-container matColumnDef="SoLuongHS">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> SoLuongHS </th>
-        <td mat-cell *matCellDef="let element"> {{element.SoLuongHS}} </td>
-      </ng-container>
+        <div class="col-sm-3">
+          <h3>Xe Chua Xep Chuyen</h3>
+          <p>So luong: {{data2.length}}</p>
+          <ng-select id="tuyenxe-table2" name="file-type" placeholder="Select Xe">
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            <ng-option *ngFor="let item of data2" [value]="item ">{{item.GiaoVu}}</ng-option>
+
+          </ng-select>
+          <button type="button" class="btn btn-primary">Them Xe</button>
+        </div>
+
+        <div class="col-sm-3">
+          <h3>Tai Xe</h3>
+          <p>So luong: {{data2.length}}</p>
+          <ng-select id="tuyenxe-table3" name="file-type" placeholder="Select Tai Xe">
+
+            <ng-option *ngFor="let item of data2" [value]="item ">{{item.GiaoVu}}</ng-option>
+
+          </ng-select>
+          <button type="button" class="btn btn-primary">Them Tai Xe</button>
+        </div>
+
+        <div class="col-sm-3">
+          <h3>Giam Ho</h3>
+          <p>Giam ho dang nghi: {{data2.length}}</p>
+          <ng-select id="tuyenxe-table1" name="file-type" placeholder="Select Giam Ho">
+
+            <ng-option *ngFor="let item of data2" [value]="item ">{{item.GiaoVu}}</ng-option>
+
+          </ng-select>
+          <button type="button" class="btn btn-primary">Them Giam Ho</button>
+        </div>
+
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+
+          <h3>Danh Sach Hoc Sinh Cho</h3>
+          <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+              <tr>
+                <th class="text-center">Tuyen</th>
+                <th class="text-center">Bus Num</th>
+                <th class="text-center">Ten Hoc Sinh</th>
+                <th class="text-center">Trang Thai</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dataHS">
+                <td class="text-center">{{ item.TuyenXe }}</td>
+                <td class="text-center">{{ item.MaXe }}</td>
+                <td class="text-center">{{ item.TenHS }}</td>
+                <td class="text-center">
+                  <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
+                  <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
+                  <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
+                  <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
+                  <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
+                  <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+                </td>
+                <td class="text-center"><i class="fa fa-plus-circle"></i></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+        <div id="tab-right-1" class="col-sm-6">
+          <h3>Danh Sach Hoc Sinh Trong Xe Moi</h3>
+          <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+              <tr>
+                <th class="text-center">Ten Hoc Sinh</th>
+                <th class="text-center">Trang Thai</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dataHS">
+                <td class="text-center">{{ item.TenHS }}</td>
+                <td class="text-center">
+                  <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
+                  <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
+                  <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
+                  <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
+                  <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
+                  <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+                </td>
+                <td class="text-center"><i class="fa fa-window-close"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary text-right">Add Tranport</button>
+        </div>
+
+      </div>
+      <div id="footer" class="row"></div>
+    </div>
+
   </div>
   <div class="tab-pane fade" id="gio-3" role="tabpanel" aria-labelledby="gio-3-tab">3</div>
 </div>

@@ -9,7 +9,8 @@ import { NgSelectConfig, NgOption } from '@ng-select/ng-select';
 export class ImportComponent implements OnInit {
 
   eventOnselectImage: any;
-  list:string[]=['csv','xstl','text','xml','json'];
+  list:string[]=['Hoạt động - Activity ','Game','Ngoại khóa','Danh Sách Tham Gia Hoạt Động','Danh sách Học Sinh '];
+  listFile:string[]=['Text Data','File'];
   constructor(private config: NgSelectConfig) {
     this.config.notFoundText = 'Custom not found';
   }

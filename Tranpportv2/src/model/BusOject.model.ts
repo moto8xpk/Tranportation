@@ -1,5 +1,5 @@
 export class Tranport {
-    loaixe: number;
+    loainguoi: number;
     loaithaydoi: number;
     lydo: string;
   }

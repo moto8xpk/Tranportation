@@ -11,16 +11,26 @@ import { ReportComponent } from './report/report.component';
 import { MaterialLibraryModule } from '../material-library/material-library.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DataTablesModule } from 'angular-datatables';
+import { TabsModule } from 'ngx-bootstrap';
+import { AppRoutingModule } from '../app-routing.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [TranportPageComponent, BusesManagementComponent, AutoSetupComponent, DetailListComponent, NoticeChangeComponent, ImportComponent, ReportComponent],
   imports: [
+    TabsModule.forRoot(),
     CommonModule,
     UiModule,
     MaterialLibraryModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    DataTablesModule,
+    AppRoutingModule,
+    NgbModule,
+    NgxMaterialTimepickerModule.forRoot()
   ],
   exports: [
     TranportPageComponent

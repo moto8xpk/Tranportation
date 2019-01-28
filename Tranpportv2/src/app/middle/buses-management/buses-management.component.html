@@ -1,34 +1,21 @@
-<mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-  
-    <ng-container matColumnDef="TuyenXe">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> TuyenXe </th>
-      <td mat-cell *matCellDef="let element"> {{element.TuyenXe}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="MaXe">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> MaXe </th>
-      <td mat-cell *matCellDef="let element"> {{element.MaXe}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="GiaoVu">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> GiaoVu </th>
-      <td mat-cell *matCellDef="let element"> {{element.GiaoVu}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="TaiXe">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> TaiXe </th>
-      <td mat-cell *matCellDef="let element"> {{element.TaiXe}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="SoLuongHS">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> SoLuongHS </th>
-      <td mat-cell *matCellDef="let element"> {{element.SoLuongHS}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+  <thead>
+    <tr>
+      <th class="text-center">Chieu</th>
+      <th class="text-center">STT Chieu Di</th>
+      <th class="text-center">STT Chieu Ve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>
+        <!-- {{ item.Chieu }} -->
+        <div class="text-center" *ngIf="item.Chieu==1"><img class="arrow-item" src="./../../../assets/icons8-arrow-48-right.png"></div>
+        <div class="text-center" *ngIf="item.Chieu==2"><img class="arrow-item" src="./../../../assets/icons8-arrow-pointing-left-48 (2).png"></div>
+        <div class="text-center" *ngIf="item.Chieu==3"><img class="arrow-item" src="./../../../assets/download.png"></div>
+      </td>
+      <td class="text-center">{{ item.sttChieuDi }}</td>
+      <td class="text-center">{{ item.sttChieuVe }}</td>
+    </tr>
+  </tbody>
+</table>

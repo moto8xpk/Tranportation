@@ -1,10 +1,22 @@
 ul#menu{
     background-color: #F44336 !important;
 }
-table {
+table#datatable-auto {
     width: 100%;
   }
+/* #tuyenxe-table {
+    width: 20%;
+  } */
 .mat-form-field {
    font-size: 14px;
    width: 100%;
 }  
+.cdk-virtual-scroll-viewport {
+    height: 500px;
+  }
+div#footer{
+  height: 150px;
+}
+button{
+  margin-top: 10px;
+}

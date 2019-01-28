@@ -1,12 +1,27 @@
-<p>Type of File : 
+<p>Type of Activities : 
 
     <ng-select  id="file-type"
-    name="file-type" placeholder="Select file type">              
+    name="file-type" placeholder="Select Activities type">              
     
         <ng-option *ngFor="let item of list" [value]="item ">{{item}}</ng-option>
 
     </ng-select>
 </p>
+
+<p>Type of File : 
+
+        <ng-select  id="file-type"
+        name="file-type" placeholder="Select file type">              
+        
+            <ng-option *ngFor="let item of listFile" [value]="item ">{{item}}</ng-option>
+    
+        </ng-select>
+    </p>
+
 <p>
   <input type='file' (change)="onSelectFile($event)">
+</p>
+
+<p class="text-center">
+        <button type="submit" class="btn btn-primary" [disabled]='false'>Submit</button>
 </p>
