@@ -1,14 +1,70 @@
-<p>Type of Activities : 
+<div class="row">
+    <div class="col align-self-center">
+        <p>Type of Activities :
 
-    <ng-select  id="file-type"
-    name="file-type" placeholder="Select Activities type">              
-    
-        <ng-option *ngFor="let item of list" [value]="item ">{{item}}</ng-option>
+            <ng-select id="file-type" name="file-type" placeholder="Select Activities type">
 
-    </ng-select>
-</p>
+                <ng-option *ngFor="let item of list" [value]="item ">{{item}}</ng-option>
 
-<p>Type of File : 
+            </ng-select>
+        </p>
+
+        <section class="example-section">
+            <label> Type of File:</label>
+            <mat-radio-group id="radio-box-file" [(ngModel)]="labelPosition1">
+                <mat-radio-button class="example-margin" value="Text Data">Text Data</mat-radio-button>
+                <mat-radio-button class="example-margin" value="File">File</mat-radio-button>
+            </mat-radio-group>
+        </section>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Column name of DATA:</label>
+            <input type="text" class="form-control" id="idDoiTuong" name="idDoiTuong" required placeholder="Enter Column name of DATA Example: area,prices">
+            <small id="emailHelp" class="form-text text-muted"></small>
+            <!-- <div *ngIf="idDoiTuong.invalid && (idDoiTuong.dirty || idDoiTuong.touched)" class="alert alert-danger">
+                <div *ngIf="idDoiTuong?.errors?.required">
+                  Id Doi Tuong is required
+                </div>
+              </div> -->
+        </div>
+
+        <div class="form-group">
+                <label for="exampleInputEmail1">DATA (If you direcly input, you show follow the format below):</label>
+                <textarea  type="text" class="form-control" id="idDoiTuong" name="idDoiTuong" required placeholder="
+                1000,316404.1095890411
+                1500,384297.9452054794
+                2300,492928.0821917808
+                3540,661304.794520548
+                4120,740061.6438356165
+                4560,799808.2191780822
+                5490,926090.7534246575
+                3460,650441.7808219178
+                4750,825607.8767123288
+                2300,492928.0821917808
+                9000,1402705.479452055
+                8600,1348390.4109589043
+                7100,1144708.904109589
+                "></textarea>
+                <small id="emailHelp" class="form-text text-muted"></small>
+                <!-- <div *ngIf="idDoiTuong.invalid && (idDoiTuong.dirty || idDoiTuong.touched)" class="alert alert-danger">
+                    <div *ngIf="idDoiTuong?.errors?.required">
+                      Id Doi Tuong is required
+                    </div>
+                  </div> -->
+            </div>
+
+        <p>
+            <input type='file' (change)="onSelectFile($event)">
+        </p>
+
+        <p class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]='false'>Submit</button>
+        </p>
+    </div>
+</div>
+
+
+<!-- <p>Type of File : 
 
         <ng-select  id="file-type"
         name="file-type" placeholder="Select file type">              
@@ -16,12 +72,4 @@
             <ng-option *ngFor="let item of listFile" [value]="item ">{{item}}</ng-option>
     
         </ng-select>
-    </p>
-
-<p>
-  <input type='file' (change)="onSelectFile($event)">
-</p>
-
-<p class="text-center">
-        <button type="submit" class="btn btn-primary" [disabled]='false'>Submit</button>
-</p>
+    </p> -->

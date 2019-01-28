@@ -11,6 +11,9 @@ export class ImportComponent implements OnInit {
   eventOnselectImage: any;
   list:string[]=['Hoạt động - Activity ','Game','Ngoại khóa','Danh Sách Tham Gia Hoạt Động','Danh sách Học Sinh '];
   listFile:string[]=['Text Data','File'];
+  // data:any="";
+  labelPosition = 'after';
+
   constructor(private config: NgSelectConfig) {
     this.config.notFoundText = 'Custom not found';
   }

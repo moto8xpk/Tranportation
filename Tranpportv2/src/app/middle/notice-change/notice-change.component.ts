@@ -12,6 +12,8 @@ import * as moment from 'moment';
 })
 export class NoticeChangeComponent implements OnInit {
 
+
+  dtOptions: DataTables.Settings = {};
   model = new Tranport();
   // model = new CustomerConfirm();
   submitted = false;
@@ -21,6 +23,33 @@ export class NoticeChangeComponent implements OnInit {
   tansuat: any[] = ['F0', 'F1', 'F2', 'F3'];
   tacdong: any[] = ['EF0', 'EF1', 'EF2', 'EF3', 'EF4'];
   activitiestacdong: any[] = ['ASA', 'Ngoại khóa', 'Game', 'Practice', 'Học chính quy'];
+  loaiDoituong: any[] = ['Học sinh', 'Giáo viên', 'Tài xế', 'Giáo Vụ'];
+  lopHoc: string = '12A14'
+  idDoiTuong: string = 'HDH123'
+  triggerOjectForShowWeek: string;
+  daysOfWeek: any = [
+    { date: 'Monday', checked: false },
+    { date: 'Tuesday', checked: false },
+    { date: 'Wednesday', checked: false },
+    { date: 'Thusday', checked: false },
+    { date: 'Friday', checked: false },
+    { date: 'Satuday', checked: false },
+    { date: 'Sunday', checked: false }];
+  dataForTable: any[] = [
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, },
+    { idDt: 'HDH01', loaidt: 'Học sinh', loaiRule: 'R0', loaiTanSuat: 'F1', tacDong: 'EF0', activitiesTD: 'ASA', dateStart: '2018/01/19', dateEnd: '2018/01/23', timeStart: '05:11 pm', timeEnd: '07:15 pm', date: 'Monday', checked: false, }
+  ]
 
   modelDate: NgbDateStruct;
   modelDate2: NgbDateStruct;
@@ -45,7 +74,13 @@ export class NoticeChangeComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 8,
+      ordering: true,
+      retrieve: true,
+      autoWidth: true
+    };
   }
 
   setToday() {

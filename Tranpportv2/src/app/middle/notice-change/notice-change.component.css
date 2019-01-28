@@ -16,3 +16,22 @@
   div#change-form{
     margin-left: 1% !important;
   }
+  #tuyenxe-table2{
+    width: 100% !important;
+  }
+  input#time-start{
+    width: 100% !important;
+    border-radius: 14px;
+    text-align: center;
+  }
+  input#time-end{
+    width: 100% !important;
+    border-radius: 14px;
+    text-align: center;
+  }
+  #form-add{
+    margin-left: 3% !important;
+  }
+  #form-update{
+    margin-left: 1% !important;
+  }
