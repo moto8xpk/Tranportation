@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
@@ -16,7 +16,8 @@ import { MaterialLibraryModule } from './material-library/material-library.modul
     AppRoutingModule,
     UiModule,
     MiddleModule,
-    MaterialLibraryModule
+    MaterialLibraryModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,6 @@ export class DetailListComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dataHS: any[];
   model: detail;
-  // model = new CustomerConfirm();
   submitted = false;
   DetailForm: FormGroup;
 

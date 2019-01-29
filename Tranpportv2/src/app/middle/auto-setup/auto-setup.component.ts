@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy,ViewChild, Input  } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
 import { Tranport } from './../../../model/Trainport.model';
 import { from } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NgSelectConfig, NgOption } from '@ng-select/ng-select';
 import { TabsetComponent } from 'ngx-bootstrap';
 import { Router } from "@angular/router";
+import { BusInfomationService } from './../../../service/bus-infomation.service';
 
 @Component({
   selector: 'app-auto-setup',
@@ -20,19 +21,24 @@ export class AutoSetupComponent implements OnDestroy, OnInit {
   data2: any;
   dataHS: any;
   tableData = [];
-
+  testData:any;
 
   photos = [];
   bufferSize = 50;
   loading = false;
   numberOfItemsFromEndBeforeFetchingMore = 10;
 
-  constructor( private config: NgSelectConfig,private router: Router) {
+  constructor(private config: NgSelectConfig, private router: Router, private busInformationService: BusInfomationService) {
     this.config.notFoundText = 'Custom not found';
   }
 
   ngOnInit() {
-    
+
+    this.busInformationService.getTestData()
+    .subscribe(data=>{
+      this.testData=data;
+    },error=>console.log(error));
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 8,
@@ -122,40 +128,11 @@ export class AutoSetupComponent implements OnDestroy, OnInit {
       { TuyenXe: 11, MaXe: 1, TenHS: 'Edwin', TrangThai: 1 },
       { TuyenXe: 12, MaXe: 2, TenHS: 'Robin', TrangThai: 2 }
     ];
+
+
   }
 
-  onScrollToEnd() {
-    this.fetchMore();
-  }
-
-  onScroll({ end }) {
-    if (this.loading || this.photos.length === this.data.length) {
-      return;
-    }
-
-    if (end + this.numberOfItemsFromEndBeforeFetchingMore >= this.data.length) {
-      this.fetchMore();
-    }
-  }
-
-  changeFormDetailList() {
-    let seletorTab=$('a[href="#detail-list"]');
-    $(seletorTab).click();
-    console.log(seletorTab);
-  }
-
-  private fetchMore() {
-    const len = this.data.length;
-    const more = this.photos.slice(len, this.bufferSize + len);
-    this.loading = true;
-    // using timeout here to simulate backend API delay
-    setTimeout(() => {
-      this.loading = false;
-      this.data = this.data.concat(more);
-    }, 200)
-  }
-
-  changeTabDetailList(){
+  changeTabDetailList() {
     this.router.navigate(['/tranport/detail-list']);
   }
 
