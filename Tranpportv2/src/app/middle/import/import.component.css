@@ -1,6 +1,7 @@
-#radio-box-file{
-    /* margin-left: 2% !important; */
-}
 .example-margin{
     margin-left: 4% !important;
+}
+#upload-file-input{
+    background-color: aqua;
+    color: brown;
 }

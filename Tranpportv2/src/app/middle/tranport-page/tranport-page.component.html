@@ -1,6 +1,42 @@
 <app-layout>
-  <button id="btn-link-{{item.id}}" *ngFor="let item of tabList" class="btn btn-primary" [routerLink]="[item.link]" role="button"
-    [disabled]="item.disable" (click)="selectBtn(item.id)">{{item.title}}</button>
+  <div class="row">
+
+    <div class="col-sm-12">
+
+        <button id="btn-link-{{item.id}}" class="btn btn-primary" [routerLink]="['/tranport/buses-management']"
+        role="button" [disabled]="false" >Online Dashboard</button>
+
+      <div class="dropdown">
+        <button class="btn btn-primary dropbtn">Activities Management</button>
+        <div class="dropdown-content">
+          <a href="#">Hoat Dong</a>
+          <a href="#">Tap Luyen</a>
+          <a href="#">Lop Ngoai Khoa</a>
+          <a href="#">Da Ngoai</a>
+          <a href="#">Team</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-primary dropbtn">Data Management</button>
+        <div class="dropdown-content">
+          <a href="#"><i class="fa fa-user"></i> User</a>
+          <a href="#"><i class="fa fa-map"></i> Route</a>
+          <a href="#"><i class="fa fa-bus"></i> Bus</a>
+          <a href="#"><i class="fa fa-male"></i> Student</a>
+        </div>
+      </div>
+
+      <button id="btn-link-{{item.id}}" *ngFor="let item of tabList" class="btn btn-primary" [routerLink]="[item.link]"
+        role="button" [disabled]="item.disable" (click)="selectBtn(item.id)">{{item.title}}</button>
+
+    </div>
+
+    <!-- <div class="col-sm-2">
+
+    </div> -->
+
+  </div>
 
   <hr>
   <router-outlet></router-outlet>
