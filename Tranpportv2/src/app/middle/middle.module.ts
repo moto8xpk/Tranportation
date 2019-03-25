@@ -16,9 +16,14 @@ import { TabsModule } from 'ngx-bootstrap';
 import { AppRoutingModule } from '../app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { ClubNActivityComponent } from './club-nactivity/club-nactivity.component';
+import { EditDuplicatedAcitivityComponent } from './edit-duplicated-acitivity/edit-duplicated-acitivity.component';
+import { OnlineDashboardComponent } from './online-dashboard/online-dashboard.component';
+
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
-  declarations: [TranportPageComponent, BusesManagementComponent, AutoSetupComponent, DetailListComponent, NoticeChangeComponent, ImportComponent, ReportComponent],
+  declarations: [TranportPageComponent, BusesManagementComponent, AutoSetupComponent, DetailListComponent, NoticeChangeComponent, ImportComponent, ReportComponent, ClubNActivityComponent, EditDuplicatedAcitivityComponent, OnlineDashboardComponent],
   imports: [
     TabsModule.forRoot(),
     CommonModule,
@@ -30,7 +35,10 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     DataTablesModule,
     AppRoutingModule,
     NgbModule,
-    NgxMaterialTimepickerModule.forRoot()
+    NgxMaterialTimepickerModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDwZt492jB0OIYFFlIc_DQwylNquzyavnU&amp'
+    })
   ],
   exports: [
     TranportPageComponent

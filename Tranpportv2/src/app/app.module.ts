@@ -9,7 +9,7 @@ import { MaterialLibraryModule } from './material-library/material-library.modul
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

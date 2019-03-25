@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-sm-10">
+    <h1>{{ title }}</h1>
+
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17" (mapClick)="mapClicked($event)">
+      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="markerIconUrl()"></agm-marker>
+      <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat"
+        [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+
+        <agm-info-window>
+          <strong>InfoWindow content</strong>
+        </agm-info-window>
+
+      </agm-marker>
+    </agm-map>
+  </div>
+  <div class="col-sm-2">
+    <h3>Info</h3>
+    <!-- <div class="profile-menu">
+      <img class="rounded-circle" src="../../../assets/user.png"><b>572</b>
+      <br>
+      <i class="material-icons">swap_calls</i> <b>6 Routes</b>
+      <br>
+      <i class="material-icons">directions_bus</i> <b>22 Running Buses</b>
+      <br>
+      <i class="fa fa-bell"></i> <b>30 Notices</b>
+    </div> -->
+    <table>
+      <tr>
+        <td><img class="rounded-circle" src="../../../assets/user.png"></td>
+        <td><b>572</b></td>
+      </tr>
+      <tr>
+        <td><i class="material-icons">swap_calls</i></td>
+        <td><b>6 Routes</b></td>
+      </tr>
+      <tr>
+        <td><i class="material-icons">directions_bus</i></td>
+        <td><b>22 Running Buses</b></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-bell"></i></td>
+        <td><b>30 Notices</b></td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Notice</h3>
+    <table class="notice-table">
+      <tr>
+        <th class="text-center">Xe</th>
+        <th class="text-center">Người gửi</th>
+        <th class="text-center">thời gian gửi</th>
+        <th class="text-center">Chi tiết thông báo</th>
+        <th class="text-center">Tính quan trọng</th>
+      </tr>
+      <tr>
+        <td class="text-center">1</td>
+        <td class="text-center">2</td>
+        <td class="text-center">3</td>
+        <td class="text-center">4</td>
+        <td class="text-center">5</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <h3>list of Running Tranports</h3>
+    <table class="list-table">
+      <tr>
+        <th class="text-center">Tuyến</th>
+        <th class="text-center">Xe</th>
+        <th class="text-center">giờ chạy</th>
+        <th class="text-center">Tài xế</th>
+        <th class="text-center">Giám hộ</th>
+        <th class="text-center">Tổng học sinh</th>
+        <th class="text-center">Số học sinh còn trên xe</th>
+        <th class="text-center">Đã xuống</th>
+        <th class="text-center">Vắng nghỉ</th>
+        <th class="text-center">Actions</th>
+      </tr>
+      <tr>
+        <td class="text-center">1</td>
+        <td class="text-center">2</td>
+        <td class="text-center">3</td>
+        <td class="text-center">4</td>
+        <td class="text-center">5</td>
+        <td class="text-center">6</td>
+        <td class="text-center">7</td>
+        <td class="text-center">8</td>
+        <td class="text-center">9</td>
+        <td class="text-center">10</td>
+      </tr>
+    </table>
+  </div>
+</div>

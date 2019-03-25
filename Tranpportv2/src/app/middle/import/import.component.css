@@ -5,3 +5,9 @@
     background-color: aqua;
     color: brown;
 }
+
+.btn-primary{
+    background-color: coral !important;
+    border-color: sienna !important;
+  }
+  

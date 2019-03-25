@@ -35,3 +35,9 @@
   #form-update{
     margin-left: 1% !important;
   }
+
+  .btn-primary{
+    background-color: coral !important;
+    border-color: sienna !important;
+  }
+  

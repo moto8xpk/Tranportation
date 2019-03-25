@@ -1,15 +1,15 @@
 <app-layout>
   <div class="row">
 
-    <div class="col-sm-12">
+    <div id="menu-list" class="col-sm-12">
 
-        <button id="btn-link-11" class="btn btn-primary" [routerLink]="['/tranport/buses-management']"
-        role="button" [disabled]="false" >Online Dashboard</button>
+        <button id="btn-link-11" class="btn btn-primary" [routerLink]="['/tranport/online-dashboard']"
+        role="button" [disabled]="tabList[0].disable" (click)="selectBtn(tabList[0].id)" >Online Dashboard</button>
 
       <div class="dropdown">
         <button class="btn btn-primary dropbtn">Activities Management</button>
         <div class="dropdown-content">
-          <a [routerLink]="['/']"><i class="fa fa-user"></i>Hoat Dong</a>
+          <a [routerLink]="['/tranport/club-activity']"><i class="fa fa-user"></i>Hoat Dong</a>
           <a [routerLink]="['/']"><i class="fa fa-male"></i> Tap Luyen</a>
           <a [routerLink]="['/']"><i class="fa fa-male"></i> Lop Ngoai Khoa</a>
           <a [routerLink]="['/']"><i class="fa fa-male"></i> Da Ngoai</a>
@@ -28,7 +28,7 @@
       </div>
 
       <button id="btn-link-{{item.id}}" *ngFor="let item of tabList" class="btn btn-primary" [routerLink]="[item.link]"
-        role="button" [disabled]="item.disable" (click)="selectBtn(item.id)">{{item.title}}</button>
+        role="button" [disabled]="item.disable" [hidden]="item.hid" (click)="selectBtn(item.id)">{{item.title}}</button>
     </div>
   </div>
 

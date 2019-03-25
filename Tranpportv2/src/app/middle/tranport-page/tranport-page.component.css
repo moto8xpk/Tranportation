@@ -1,5 +1,14 @@
 button{
-    margin:1em 1em 1em 1em;
+    width: 12%;
+}
+
+div#menu-list{
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+}
+
+.dropdown button{
+  width: 100%;
 }
 
 .dropbtn {
@@ -11,13 +20,22 @@ button{
   }
   
   .dropdown {
+    width: 12%;
     position: relative;
     display: inline-block;
   }
+
+  .btn-primary{
+    background-color: coral !important;
+    border-color: sienna !important;
+  }
   
+
+
   .dropdown-content {
-    margin-left: 9%;
-    margin-top: -7%;
+    width: 100% !important;
+    margin-left: 0%;
+    margin-top: 0%;
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -42,3 +60,7 @@ button{
   .dropdown:hover .dropbtn {
       /* background-color: #3e8e41; */
     }
+
+.btn{
+  font-size: 14px !important;
+}

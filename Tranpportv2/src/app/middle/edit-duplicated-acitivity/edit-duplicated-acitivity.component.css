@@ -1,0 +1,9 @@
+.left-activity{
+    float: left;
+}
+.right-activity{
+    float: right;
+}
+.clear-float{
+    clear: both;
+}

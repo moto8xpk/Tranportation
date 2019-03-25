@@ -20,3 +20,8 @@ div#footer{
 button{
   margin-top: 10px;
 }
+
+.btn-primary{
+  background-color: coral !important;
+  border-color: sienna !important;
+}
