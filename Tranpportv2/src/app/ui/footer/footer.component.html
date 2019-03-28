@@ -1,0 +1,15 @@
+<br>
+<div id="footer" class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-2">
+        <p id="language-title">
+            Choose Language:
+        </p>
+    </div>
+    <div class="col-sm-1">
+        <select id="language-select" #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
+    </div>
+</div>

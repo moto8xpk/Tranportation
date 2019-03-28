@@ -21,6 +21,7 @@ import { EditDuplicatedAcitivityComponent } from './edit-duplicated-acitivity/ed
 import { OnlineDashboardComponent } from './online-dashboard/online-dashboard.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { ShareModuleModule } from '../share-module/share-module.module';
 
 @NgModule({
   declarations: [TranportPageComponent, BusesManagementComponent, AutoSetupComponent, DetailListComponent, NoticeChangeComponent, ImportComponent, ReportComponent, ClubNActivityComponent, EditDuplicatedAcitivityComponent, OnlineDashboardComponent],
@@ -38,7 +39,8 @@ import { AgmCoreModule } from '@agm/core';
     NgxMaterialTimepickerModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDwZt492jB0OIYFFlIc_DQwylNquzyavnU&amp'
-    })
+    }),
+    ShareModuleModule
   ],
   exports: [
     TranportPageComponent

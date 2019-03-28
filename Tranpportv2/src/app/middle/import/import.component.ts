@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgSelectConfig, NgOption } from '@ng-select/ng-select';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-import',
@@ -14,7 +15,7 @@ export class ImportComponent implements OnInit {
   // data:any="";
   labelPosition = 'after';
 
-  constructor(private config: NgSelectConfig) {
+  constructor(private config: NgSelectConfig,private translate: TranslateService) {
     this.config.notFoundText = 'Custom not found';
   }
 

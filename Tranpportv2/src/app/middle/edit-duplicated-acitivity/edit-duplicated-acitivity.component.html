@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col-sm-12">
-    <h3 class="text-center">Edit Duplicated Activity</h3>
-    <p>List of student</p>
+    <h3 class="text-center">{{ 'HOME.EditDuplicatedActivityt'| translate }}</h3>
+    <p>{{ 'HOME.ListOfStudentsEDA'| translate }}</p>
     <table datatable [dtOptions]="dtOptions" class="row-border hover">
       <thead>
         <tr>
-          <th rowspan="2" class="text-center">Index</th>
-          <th rowspan="2" class="text-center">StudentCode</th>
-          <th rowspan="2" class="text-center">StudentName</th>
-          <th rowspan="2" class="text-center">NickName</th>
-          <th rowspan="2" class="text-center">Class</th>
-          <th rowspan="2" class="text-center">Activities</th>
-          <th colspan="3" class="text-center">Arraged Time</th>
+          <th rowspan="2" class="text-center">{{ 'HOME.IndexEDA'| translate }}</th>
+          <th rowspan="2" class="text-center">{{ 'HOME.StudentCodeEDA'| translate }}</th>
+          <th rowspan="2" class="text-center">{{ 'HOME.StudentNameEDA'| translate }}</th>
+          <th rowspan="2" class="text-center">{{ 'HOME.NickNameEDA'| translate }}</th>
+          <th rowspan="2" class="text-center">{{ 'HOME.ClassEDA'| translate }}</th>
+          <th rowspan="2" class="text-center">{{ 'HOME.ActivitiesEDA'| translate }}</th>
+          <th colspan="3" class="text-center">{{ 'HOME.ArragedTimeEDA'| translate }}</th>
         </tr>
         <tr>
           <th class="text-center">4:30</th>
@@ -27,12 +27,12 @@
           <td class="text-center">{{ item.nickName }}</td>
           <td class="text-center">{{ item.class }}</td>
           <td>
-            <div class="left-activity">Thi dau bong ro</div>
+            <div class="left-activity">{{ 'HOME.BasketballCompetitionEDA'| translate }}</div>
             <div class="right-activity">
               <mat-checkbox class="example-margin" [(ngModel)]="item.act1">14:30 - 17:30</mat-checkbox>
             </div>
             <div class="clear-float"></div>
-            <div class="left-activity">Thi dau vu dieu moi</div>
+            <div class="left-activity">{{ 'HOME.DancingCompetitionEDA'| translate }}</div>
             <div class="right-activity">
               <mat-checkbox class="example-margin" [(ngModel)]="item.act2">16:30 - 18:00</mat-checkbox>
             </div>

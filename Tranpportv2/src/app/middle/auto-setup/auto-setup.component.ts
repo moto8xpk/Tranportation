@@ -6,6 +6,7 @@ import { NgSelectConfig, NgOption } from '@ng-select/ng-select';
 import { TabsetComponent } from 'ngx-bootstrap';
 import { Router } from "@angular/router";
 import { BusInfomationService } from './../../../service/bus-infomation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-auto-setup',
@@ -28,7 +29,7 @@ export class AutoSetupComponent implements OnDestroy, OnInit {
   loading = false;
   numberOfItemsFromEndBeforeFetchingMore = 10;
 
-  constructor(private config: NgSelectConfig, private router: Router, private busInformationService: BusInfomationService) {
+  constructor(private config: NgSelectConfig, private router: Router, private busInformationService: BusInfomationService,private translate: TranslateService) {
     this.config.notFoundText = 'Custom not found';
   }
 

@@ -1,43 +1,53 @@
-<h3 class="text-center">Club And Activity Management</h3>
-<table datatable [dtOptions]="dtOptions" class="row-border hover">
-  <thead>
-    <tr>
-      <th class="text-center">Index</th>
-      <th class="text-center">CodeClub</th>
-      <th class="text-center">ClubName</th>
-      <th class="text-center">ClubType</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of data">
-      <td class="text-center">{{item.index}}</td>
-      <td class="text-center">{{ item.clubCode }}</td>
-      <td class="text-center">{{ item.clubName }}</td>
-      <td class="text-center">{{ item.clubType }}</td>
-    </tr>
-  </tbody>
-</table>
-<button class="btn btn-primary float-right"> Add New Club</button>
+<div class="row">
+  <div class="col-sm-12">
+    <h3 class="text-center">{{ 'HOME.ClubAndActivityTitle'| translate }}</h3>
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+        <tr>
+          <th class="text-center">{{ 'HOME.IndexClub'| translate }}</th>
+          <th class="text-center">{{ 'HOME.CodeClub'| translate }}</th>
+          <th class="text-center">{{ 'HOME.ClubName'| translate }}</th>
+          <th class="text-center">{{ 'HOME.ClubType'| translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td class="text-center">{{item.index}}</td>
+          <td class="text-center">{{ item.clubCode }}</td>
+          <td class="text-center">{{ item.clubName }}</td>
+          <td class="text-center">{{ item.clubType }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary float-right">{{ 'HOME.AddClubBtn'| translate }}</button>
+  </div>
+</div>
+
 <hr>
-<h3 class="text-center">List Of Students Joinning Club </h3>
-<table datatable [dtOptions]="dtOptions" class="row-border hover">
-  <thead>
-    <tr>
-      <th class="text-center">Index</th>
-      <th class="text-center">StudentCode</th>
-      <th class="text-center">StudentName</th>
-      <th class="text-center">NickName</th>
-      <th class="text-center">Class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of data2">
-      <td class="text-center">{{item.index}}</td>
-      <td class="text-center">{{ item.studentCode }}</td>
-      <td class="text-center">{{ item.studentName }}</td>
-      <td class="text-center">{{ item.nickName }}</td>
-      <td class="text-center">{{ item.class }}</td>
-    </tr>
-  </tbody>
-</table>
-<button class="btn btn-primary float-right">Add Student</button>
+<div class="row">
+  <div class="col-sm-12">
+    <h3 class="text-center">{{ 'HOME.ListOfStudentsJoinningClub'| translate }}</h3>
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+        <tr>
+          <th class="text-center">{{ 'HOME.IndexOfStudentsJoinningClub'| translate }}</th>
+          <th class="text-center">{{ 'HOME.StudentCode'| translate }}</th>
+          <th class="text-center">{{ 'HOME.StudentName'| translate }}</th>
+          <th class="text-center">{{ 'HOME.NickName'| translate }}</th>
+          <th class="text-center">{{ 'HOME.Class'| translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data2">
+          <td class="text-center">{{item.index}}</td>
+          <td class="text-center">{{ item.studentCode }}</td>
+          <td class="text-center">{{ item.studentName }}</td>
+          <td class="text-center">{{ item.nickName }}</td>
+          <td class="text-center">{{ item.class }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary float-right">{{ 'HOME.AddStudentBtn'| translate }}</button>
+  </div>
+</div>

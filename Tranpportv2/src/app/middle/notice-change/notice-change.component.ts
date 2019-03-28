@@ -4,6 +4,7 @@ import { Tranport } from './../../../model/BusOject.model';
 import { NgSelectConfig, NgOption } from '@ng-select/ng-select';
 import { NgbCalendar, NgbDatepickerConfig, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-notice-change',
@@ -63,7 +64,7 @@ export class NoticeChangeComponent implements OnInit {
   item2: boolean = false;
 
 
-  constructor(private calendar: NgbCalendar, config: NgbDatepickerConfig, private config1: NgSelectConfig) {
+  constructor(private calendar: NgbCalendar, config: NgbDatepickerConfig, private config1: NgSelectConfig,private translate: TranslateService) {
     this.config1.notFoundText = 'Custom not found';
 
     this.setToday();

@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-10">
-    <h1>{{ title }}</h1>
+    <h1>{{ 'HOME.Title'| translate }}</h1>
+    <!-- <h1>Online Dashboard</h1> -->
 
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17" (mapClick)="mapClicked($event)">
       <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="markerIconUrl()"></agm-marker>
@@ -32,15 +33,18 @@
       </tr>
       <tr>
         <td><i class="material-icons">swap_calls</i></td>
-        <td><b>6 Routes</b></td>
+        <!-- <td><b>6 Routes</b></td> -->
+        <td><b>6 {{ 'HOME.RoutesInfo'| translate }}</b></td>
       </tr>
       <tr>
         <td><i class="material-icons">directions_bus</i></td>
-        <td><b>22 Running Buses</b></td>
+        <!-- <td><b>22 Running Buses</b></td> -->
+        <td><b>22 {{ 'HOME.BusInfo'| translate }}</b></td>
       </tr>
       <tr>
         <td><i class="fa fa-bell"></i></td>
-        <td><b>30 Notices</b></td>
+        <!-- <td><b>30 Notices</b></td> -->
+        <td><b>30 {{ 'HOME.Notices'| translate }}</b></td>
       </tr>
     </table>
 
@@ -48,14 +52,14 @@
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <h3>Notice</h3>
+    <h3>{{ 'HOME.Notice'| translate }}</h3>
     <table class="notice-table">
       <tr>
-        <th class="text-center">Xe</th>
-        <th class="text-center">Người gửi</th>
-        <th class="text-center">thời gian gửi</th>
-        <th class="text-center">Chi tiết thông báo</th>
-        <th class="text-center">Tính quan trọng</th>
+        <th class="text-center">{{ 'HOME.Trainport'| translate }}</th>
+        <th class="text-center">{{ 'HOME.Sender'| translate }}</th>
+        <th class="text-center">{{ 'HOME.TimeSent'| translate }}</th>
+        <th class="text-center">{{ 'HOME.DetailNotice'| translate }}</th>
+        <th class="text-center">{{ 'HOME.ImportantLevel'| translate }}</th>
       </tr>
       <tr>
         <td class="text-center">1</td>
@@ -69,19 +73,19 @@
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <h3>list of Running Tranports</h3>
+    <h3>{{ 'HOME.ListRunningTrainportTitle'| translate }}</h3>
     <table class="list-table">
       <tr>
-        <th class="text-center">Tuyến</th>
-        <th class="text-center">Xe</th>
-        <th class="text-center">giờ chạy</th>
-        <th class="text-center">Tài xế</th>
-        <th class="text-center">Giám hộ</th>
-        <th class="text-center">Tổng học sinh</th>
-        <th class="text-center">Số học sinh còn trên xe</th>
-        <th class="text-center">Đã xuống</th>
-        <th class="text-center">Vắng nghỉ</th>
-        <th class="text-center">Actions</th>
+        <th class="text-center">{{ 'HOME.RouteList'| translate }}</th>
+        <th class="text-center">{{ 'HOME.TranportList'| translate }}</th>
+        <th class="text-center">{{ 'HOME.TimeStart'| translate }}</th>
+        <th class="text-center">{{ 'HOME.Driver'| translate }}</th>
+        <th class="text-center">{{ 'HOME.Tutor'| translate }}</th>
+        <th class="text-center">{{ 'HOME.TotalStudents'| translate }}</th>
+        <th class="text-center">{{ 'HOME.NumberOfStudentsRemaining'| translate }}</th>
+        <th class="text-center">{{ 'HOME.NumberOfStudentsGotOff'| translate }}</th>
+        <th class="text-center">{{ 'HOME.Absent'| translate }}</th>
+        <th class="text-center">{{ 'HOME.Actions'| translate }}</th>
       </tr>
       <tr>
         <td class="text-center">1</td>
@@ -98,3 +102,4 @@
     </table>
   </div>
 </div>
+<br>

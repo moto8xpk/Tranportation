@@ -3,6 +3,7 @@ import { Tranport } from './../../../model/Trainport.model';
 import { from } from 'rxjs';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Subject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-buses-management',
   templateUrl: './buses-management.component.html',
@@ -14,8 +15,8 @@ export class BusesManagementComponent implements OnDestroy, OnInit {
   tranport: Tranport[] = [];
   // dtTrigger: Subject<Tranport> = new Subject();
   data: any;
-  constructor() {
-
+  constructor(private translate: TranslateService) {
+    
   }
 
   ngOnInit() {

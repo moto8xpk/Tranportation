@@ -1,20 +1,20 @@
 <div class="row">
   <div class="col-sm-12">
-      <button [routerLink]="['/tranport/edit-duplicated-activity']" class="btn btn-primary">Arrange Student</button>
+      <button [routerLink]="['/tranport/edit-duplicated-activity']" class="btn btn-primary">{{ 'HOME.ArrangeStudent'| translate }}</button>
   </div>
 </div>
 <hr>
 <table id="datatable-auto" datatable [dtOptions]="dtOptions" class="row-border hover">
   <thead>
     <tr>
-      <th class="text-center">CODE</th>
-      <th class="text-center">Bus Num</th>
-      <th class="text-center">Time Start</th>
-      <th class="text-center">Time</th>
-      <th class="text-center"><i class="fa fa-user"></i> Fullname-Guard</th>
-      <th class="text-center"><i class="fa fa-user"></i> Driver</th>
-      <th class="text-center">Students Quatity</th>
-      <th class="text-center">Actions</th>
+      <th class="text-center">{{ 'HOME.CODE'| translate }}</th>
+      <th class="text-center">{{ 'HOME.BusNum'| translate }}</th>
+      <th class="text-center">{{ 'HOME.TimeStartAutoSetup'| translate }}</th>
+      <th class="text-center">{{ 'HOME.TimeAutoSetup'| translate }}</th>
+      <th class="text-center"><i class="fa fa-user"></i> {{ 'HOME.FullnameGuard'| translate }}</th>
+      <th class="text-center"><i class="fa fa-user"></i> {{ 'HOME.DriverAutoSetup'| translate }}</th>
+      <th class="text-center">{{ 'HOME.StudentsQuatity'| translate }}</th>
+      <th class="text-center">{{ 'HOME.ActionsAutoSetup'| translate }}</th>
     </tr>
   </thead>
   <tbody>
@@ -50,15 +50,13 @@
 <ul id="menu1" class="nav nav-tabs" id="tranport-menu1" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="gio-1-tab" data-toggle="tab" href="#gio-1" role="tab" aria-controls="gio-1"
-      aria-selected="true">Gio 1</a>
+      aria-selected="true">{{ 'HOME.Time1AutoSetup'| translate }}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="gio-2-tab" data-toggle="tab" href="#gio-2" role="tab" aria-controls="gio-2" aria-selected="false">Gio
-      2</a>
+    <a class="nav-link" id="gio-2-tab" data-toggle="tab" href="#gio-2" role="tab" aria-controls="gio-2" aria-selected="false">{{ 'HOME.Time2AutoSetup'| translate }}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="gio-3-tab" data-toggle="tab" href="#gio-3" role="tab" aria-controls="gio-3" aria-selected="false">Gio
-      3</a>
+    <a class="nav-link" id="gio-3-tab" data-toggle="tab" href="#gio-3" role="tab" aria-controls="gio-3" aria-selected="false">{{ 'HOME.Time3AutoSetup'| translate }}</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent1">
@@ -70,47 +68,47 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3">
-          <h3>Tuyen Xe</h3>
-          <p>Tuyen xe dang nghi: {{data.length}}</p>
+          <h3>{{ 'HOME.RouteAutoSetup'| translate }}</h3>
+          <p>{{ 'HOME.BusIsOnLeave'| translate }}: {{data.length}}</p>
           <ng-select id="tuyenxe-table" name="file-type" placeholder="Select Tuyen Xe">
 
             <ng-option *ngFor="let item of data" [value]="item ">{{item.GiaoVu}}</ng-option>
 
           </ng-select>
-          <button type="button" class="btn btn-primary">Them Tuyen Xe</button>
+          <button type="button" class="btn btn-primary">{{ 'HOME.AddRoute'| translate }}</button>
         </div>
 
         <div class="col-sm-3">
-          <h3>Xe Chua Xep Chuyen</h3>
-          <p>So luong: {{data2.length}}</p>
+          <h3>{{ 'HOME.TranportHaveNoRoute'| translate }}</h3>
+          <p>{{ 'HOME.QuantityRouteAutoSetup'| translate }}: {{data2.length}}</p>
           <ng-select id="tuyenxe-table2" name="file-type" placeholder="Select Xe">
 
             <ng-option *ngFor="let item of data2" [value]="item ">{{item.GiaoVu}}</ng-option>
 
           </ng-select>
-          <button type="button" class="btn btn-primary">Them Xe</button>
+          <button type="button" class="btn btn-primary">{{ 'HOME.AddTranport'| translate }}</button>
         </div>
 
         <div class="col-sm-3">
-          <h3>Tai Xe</h3>
-          <p>So luong: {{data2.length}}</p>
+          <h3>{{ 'HOME.DriverAutoSetupTime2'| translate }}</h3>
+          <p>{{ 'HOME.QuantityDriverAutoSetup'| translate }}: {{data2.length}}</p>
           <ng-select id="tuyenxe-table3" name="file-type" placeholder="Select Tai Xe">
 
             <ng-option *ngFor="let item of data2" [value]="item ">{{item.GiaoVu}}</ng-option>
 
           </ng-select>
-          <button type="button" class="btn btn-primary">Them Tai Xe</button>
+          <button type="button" class="btn btn-primary">{{ 'HOME.AddDriver'| translate }}</button>
         </div>
 
         <div class="col-sm-3">
-          <h3>Giam Ho</h3>
-          <p>Giam ho dang nghi: {{data2.length}}</p>
+          <h3>{{ 'HOME.Guard'| translate }}</h3>
+          <p>{{ 'HOME.GuardHaveNoTranport'| translate }}: {{data2.length}}</p>
           <ng-select id="tuyenxe-table1" name="file-type" placeholder="Select Giam Ho">
 
             <ng-option *ngFor="let item of data2" [value]="item ">{{item.GiaoVu}}</ng-option>
 
           </ng-select>
-          <button type="button" class="btn btn-primary">Them Giam Ho</button>
+          <button type="button" class="btn btn-primary">{{ 'HOME.AddGuard'| translate }}</button>
         </div>
 
       </div>
@@ -118,15 +116,15 @@
       <div class="row">
         <div class="col-sm-6">
 
-          <h3>Danh Sach Hoc Sinh Cho</h3>
+          <h3>{{ 'HOME.ListOfWaitStudent'| translate }}</h3>
           <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
             <thead>
               <tr>
-                <th class="text-center">Tuyen</th>
-                <th class="text-center">Bus Num</th>
-                <th class="text-center">Ten Hoc Sinh</th>
-                <th class="text-center">Trang Thai</th>
-                <th class="text-center">Actions</th>
+                <th class="text-center">{{ 'HOME.RouteOfWaitStudent'| translate }}</th>
+                <th class="text-center">{{ 'HOME.BusNumOfWaitStudent'| translate }}</th>
+                <th class="text-center">{{ 'HOME.StudentNameOfWaitStudent'| translate }}</th>
+                <th class="text-center">{{ 'HOME.State'| translate }}</th>
+                <th class="text-center">{{ 'HOME.ActionsOfWaitStudent'| translate }}</th>
               </tr>
             </thead>
             <tbody>
@@ -135,12 +133,12 @@
                 <td class="text-center">{{ item.MaXe }}</td>
                 <td class="text-center">{{ item.TenHS }}</td>
                 <td class="text-center">
-                  <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
-                  <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
-                  <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
-                  <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
-                  <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
-                  <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+                  <div class="text-center" *ngIf="item.TrangThai==0">{{ 'HOME.Going'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==1">{{ 'HOME.GotOff'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==2">{{ 'HOME.Boarding'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==3">{{ 'HOME.Change'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==4">{{ 'HOME.Absent1OfWaitStudent'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==5">{{ 'HOME.Absent2OfWaitStudent'| translate }}</div>
                 </td>
                 <td class="text-center"><i class="fa fa-plus-circle"></i></td>
               </tr>
@@ -150,31 +148,31 @@
 
         </div>
         <div id="tab-right-1" class="col-sm-6">
-          <h3>Danh Sach Hoc Sinh Trong Xe Moi</h3>
+          <h3>{{ 'HOME.ListOfStudentInNewTranport'| translate }}</h3>
           <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
             <thead>
               <tr>
-                <th class="text-center">Ten Hoc Sinh</th>
-                <th class="text-center">Trang Thai</th>
-                <th class="text-center">Actions</th>
+                <th class="text-center">{{ 'HOME.NameOfStudentInNewTranport'| translate }}</th>
+                <th class="text-center">{{ 'HOME.StateOfStudentInNewTranport'| translate }}</th>
+                <th class="text-center">{{ 'HOME.ActionsNewTranport'| translate }}</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of dataHS">
                 <td class="text-center">{{ item.TenHS }}</td>
                 <td class="text-center">
-                  <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
-                  <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
-                  <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
-                  <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
-                  <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
-                  <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+                  <div class="text-center" *ngIf="item.TrangThai==0">{{ 'HOME.GoingNewTranport'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==1">{{ 'HOME.GotOffNewTranport'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==2">{{ 'HOME.BoardingNewTranport'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==3">{{ 'HOME.ChangeNewTranport'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==4">{{ 'HOME.Absent1OfWaitStudentNewTranport'| translate }}</div>
+                  <div class="text-center" *ngIf="item.TrangThai==5">{{ 'HOME.Absent2OfWaitStudentNewTranport'| translate }}</div>
                 </td>
                 <td class="text-center"><i class="fa fa-window-close"></i></td>
               </tr>
             </tbody>
           </table>
-          <button type="button" class="btn btn-primary text-right">Add Tranport</button>
+          <button type="button" class="btn btn-primary text-right">{{ 'HOME.AddTranportNewTranport'| translate }}</button>
         </div>
 
       </div>

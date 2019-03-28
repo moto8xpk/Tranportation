@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-club-nactivity',
@@ -40,7 +41,9 @@ export class ClubNActivityComponent implements OnInit {
       { index: 12, studentCode: 'Philosophy', studentName: 'Robin',nickName:'chichi', class: '1/2' }
   ];
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+    
+   }
 
   ngOnInit() {
 

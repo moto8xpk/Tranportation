@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: 'online-dashboard', component: OnlineDashboardComponent },
     ]
   },
-  { path: '', redirectTo: '/tranport/buses-management', pathMatch: 'full' },
+  { path: '', redirectTo: '/tranport/online-dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

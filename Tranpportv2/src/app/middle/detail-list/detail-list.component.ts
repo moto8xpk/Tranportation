@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { detail } from './../../../model/detail.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-detail-list',
@@ -15,7 +16,7 @@ export class DetailListComponent implements OnInit {
   submitted = false;
   DetailForm: FormGroup;
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() {
     this.dtOptions = {

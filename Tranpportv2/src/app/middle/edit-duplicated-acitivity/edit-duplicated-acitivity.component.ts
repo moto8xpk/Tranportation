@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-duplicated-acitivity',
@@ -24,7 +25,7 @@ export class EditDuplicatedAcitivityComponent implements OnInit {
       { index: 12, studentCode: 'Philosophy', studentName: 'Robin',nickName:'chichi', class: '1/2',act1:false,act2:false,time1:false,time2:false,time3:true }
   ];
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() {
     this.dtOptions = {

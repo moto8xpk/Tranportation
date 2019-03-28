@@ -1,6 +1,6 @@
 <!-- <div id="change-form" class="row"> -->
 <!-- <div id="logging-form" class="col-sm-4"> -->
-<h2>Notice Change</h2>
+<h2>{{ 'HOME.NoticeChangeTitle'| translate }}</h2>
 
 
 <!-- <mat-card>
@@ -43,7 +43,7 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Id Doi Tuong:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.IdObjectNC'| translate }}:</label>
         <input type="text" class="form-control" id="idDoiTuong" [value]='idDoiTuong' name="idDoiTuong" required
           placeholder="Enter Id Doi Tuong">
         <small id="emailHelp" class="form-text text-muted"></small>
@@ -56,7 +56,7 @@
     </div>
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Loai Doi Tuong:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.TypeObjectNC'| translate }}:</label>
         <div class="input-group">
           <ng-select id="tuyenxe-table2" [(ngModel)]="loaiDoituong[0]" [ngModelOptions]="{standalone: true}" name="file-type" placeholder="Select Doi Tuong">
 
@@ -68,7 +68,7 @@
     </div>
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Obj 2:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.Object2'| translate }}:</label>
         <div class="input-group">
           <ng-select id="tuyenxe-table2" [(ngModel)]="activitiestacdong[0]" [ngModelOptions]="{standalone: true}" name="file-type" placeholder="Select Obj2">
 
@@ -80,7 +80,7 @@
     </div>
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Rule:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.RuleNC'| translate }}:</label>
         <div class="input-group">
           <ng-select id="tuyenxe-table2" name="file-type" placeholder="Select Rule">
 
@@ -92,7 +92,7 @@
     </div>
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Tan suat:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.FrequencyNC'| translate }}:</label>
         <div class="input-group">
           <ng-select id="tuyenxe-table2" [(ngModel)]="triggerOjectForShowWeek" [ngModelOptions]="{standalone: true}" name="file-type" placeholder="Select Tan suat">
 
@@ -104,7 +104,7 @@
     </div>
     <div class="col-sm-3">
       <div *ngIf="triggerOjectForShowWeek=='F2'" class="form-group">
-        <label for="exampleInputEmail1">Date Of Week:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.DateOfWeekNC'| translate }}:</label>
         <div class="input-group">
           <section class="example-section">
             <mat-checkbox *ngFor="let item of daysOfWeek" class="example-margin" [(ngModel)]="item.checked"
@@ -118,7 +118,7 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Tac Dong:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.ImpactNC'| translate }}:</label>
         <div class="input-group">
           <ng-select id="tuyenxe-table2" name="file-type" placeholder="Select Tac Dong">
 
@@ -131,7 +131,7 @@
 
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Hoat Dong:</label>
+        <label for="exampleInputEmail1">{{ 'HOME.ActivityNC'| translate }}:</label>
         <div class="input-group">
           <ng-select id="tuyenxe-table2" name="file-type" placeholder="Select Hoat Dong">
 
@@ -143,7 +143,7 @@
     </div>
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Date Start</label>
+        <label for="exampleInputEmail1">{{ 'HOME.DateStartNC'| translate }}</label>
         <div class="input-group">
           <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelDate" ngbDatepicker #d="ngbDatepicker">
           <div class="input-group-append">
@@ -154,7 +154,7 @@
     </div>
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Date End</label>
+        <label for="exampleInputEmail1">{{ 'HOME.DateEndNC'| translate }}</label>
         <div class="input-group">
           <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelDate2" ngbDatepicker #d1="ngbDatepicker">
           <div class="input-group-append">
@@ -171,7 +171,7 @@
     <div class="col-sm-3">
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Time Start</label>
+        <label for="exampleInputEmail1">{{ 'HOME.TimeStartNC'| translate }}</label>
         <div class="input-group">
           <input id="time-start" placeholder="12hr format" [value]="'05:11 pm'" aria-label="12hr format"
             [ngxTimepicker]="default" readonly>
@@ -183,7 +183,7 @@
 
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="exampleInputEmail1">Time End</label>
+        <label for="exampleInputEmail1">{{ 'HOME.TimeEndNC'| translate }}</label>
         <div class="input-group">
           <input id="time-end" placeholder="12hr format" [value]="'07:15 pm'" aria-label="12hr format" [ngxTimepicker]="default1"
             readonly>
@@ -195,28 +195,28 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <button id="form-add" type="submit" class="btn btn-primary" [disabled]='!noticeChangeForm.valid'>Add</button>
-      <button id="form-update" type="submit" class="btn btn-primary" [disabled]='!noticeChangeForm.valid'>Update</button>
+      <button id="form-add" type="submit" class="btn btn-primary" [disabled]='!noticeChangeForm.valid'>{{ 'HOME.AddNC'| translate }}</button>
+      <button id="form-update" type="submit" class="btn btn-primary" [disabled]='!noticeChangeForm.valid'>{{ 'HOME.UpdateNC'| translate }}</button>
     </div>
   </div>
 </form>
 <div class="row">
   <div class="col-sm-12">
-      <h3>Change List</h3>
+      <h3>{{ 'HOME.ChangeListTitle'| translate }}</h3>
       <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
         <thead>
           <tr>
-            <th class="text-center">Loai Doi Tuong</th>
-            <th class="text-center">Id Doi Tuong</th>
-            <th class="text-center">Loai Rule</th>
-            <th class="text-center">Tan Suat</th>
-            <th class="text-center">Tac Dong</th>
-            <th class="text-center">Hoat Dong Bi Tac Dong</th>
-            <th class="text-center">Start Date</th>
-            <th class="text-center">End Date</th>
-            <th class="text-center">Start Time</th>
-            <th class="text-center">End Time</th>
-            <th class="text-center">Actions</th>
+            <th class="text-center">{{ 'HOME.TypeOfObjectNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.IdOfObjectNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.TypeOfRuleNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.FrequencyListNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.ImpactListNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.ActivityImpactNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.StartDateListNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.EndDateListNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.StartTimeNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.EndTimeNC'| translate }}</th>
+            <th class="text-center">{{ 'HOME.ActionsListNC'| translate }}</th>
           </tr>
         </thead>
         <tbody>

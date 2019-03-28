@@ -6,65 +6,65 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="exampleInputEmail1">Tuyen Xe:</label>
+            <label for="exampleInputEmail1">{{ 'HOME.RouteDL'| translate }}:</label>
             <input type="text" class="form-control" id="tuyenXe" [(ngModel)]="model.tuyenXe" name="tuyenXe" #tuyenXe="ngModel"
               required placeholder="Enter Tuyen Xe" [disabled]="true">
             <small id="emailHelp" class="form-text text-muted"></small>
             <div *ngIf="tuyenXe.invalid && (tuyenXe.dirty || tuyenXe.touched)" class="alert alert-danger">
               <div *ngIf="tuyenXe?.errors?.required">
-                Tuyen Xe is required
+                {{ 'HOME.RouteValidationRequiredDL'| translate }}
               </div>
             </div>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="exampleInputEmail1">Ma Xe:</label>
+            <label for="exampleInputEmail1">{{ 'HOME.BusCodeDL'| translate }}:</label>
             <input type="text" class="form-control" id="maXe" [(ngModel)]="model.maXe" name="maXe" #maXe="ngModel"
               required placeholder="Enter Ma Xe" [disabled]="true">
             <small id="emailHelp" class="form-text text-muted"></small>
             <div *ngIf="maXe.invalid && (maXe.dirty || maXe.touched)" class="alert alert-danger">
               <div *ngIf="maXe?.errors?.required">
-                Ma Xe is required
+                {{ 'HOME.BusCodeValidationRequiredDL'| translate }}
               </div>
             </div>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="exampleInputEmail1">Tai Xe</label>
+            <label for="exampleInputEmail1">{{ 'HOME.DriverDL'| translate }}</label>
             <input type="text" class="form-control" id="taiXe" [(ngModel)]="model.taiXe" name="taiXe" #taiXe="ngModel"
               required placeholder="Enter Tai Xe" [disabled]="true">
             <small id="emailHelp" class="form-text text-muted"></small>
             <div *ngIf="taiXe.invalid && (taiXe.dirty || taiXe.touched)" class="alert alert-danger">
               <div *ngIf="taiXe?.errors?.required">
-                Tai Xe is required
+                {{ 'HOME.DriverValidationRequiredDL'| translate }}
               </div>
             </div>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="exampleInputEmail1">Giao Vu:</label>
+            <label for="exampleInputEmail1">{{ 'HOME.TutorDL'| translate }}:</label>
             <input type="text" class="form-control" id="giaoVu" [(ngModel)]="model.giaoVu" name="giaoVu" #giaoVu="ngModel"
               required placeholder="Enter Giao Vu" [disabled]="true">
             <small id="emailHelp" class="form-text text-muted"></small>
             <div *ngIf="giaoVu.invalid && (giaoVu.dirty || giaoVu.touched)" class="alert alert-danger">
               <div *ngIf="giaoVu?.errors?.required">
-                Giao Vu is required
+                {{ 'HOME.TutorValidationRequiredDL'| translate }}
               </div>
             </div>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
-            <label for="exampleInputEmail1">Gio:</label>
+            <label for="exampleInputEmail1">{{ 'HOME.TimeDL'| translate }}:</label>
             <input type="text" class="form-control" id="gio" [(ngModel)]="model.gio" name="gio" #gio="ngModel" required
               placeholder="Enter Gio" [disabled]="true">
             <small id="emailHelp" class="form-text text-muted"></small>
             <div *ngIf="gio.invalid && (gio.dirty || gio.touched)" class="alert alert-danger">
               <div *ngIf="gio?.errors?.required">
-                Gio is required
+                {{ 'HOME.TimeValidationRequiredDl'| translate }}
               </div>
             </div>
           </div>
@@ -78,15 +78,15 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h3>Danh Sach Hoc Sinh Trong Xe Moi</h3>
+      <h3>{{ 'HOME.ListOfStudentInNewTranportTitle'| translate }}</h3>
       <table id="datatable-auto1" datatable [dtOptions]="dtOptions" class="row-border hover">
         <thead>
           <tr>
-            <th class="text-center">Ma Hoc Sinh</th>
-            <th class="text-center">Ten Hoc Sinh</th>
-            <th class="text-center">Nick Name</th>
-            <th class="text-center">Trang Thai</th>
-            <th class="text-center">Actions</th>
+            <th class="text-center">{{ 'HOME.StudentCodeDL'| translate }}</th>
+            <th class="text-center">{{ 'HOME.StudentNameDL'| translate }}</th>
+            <th class="text-center">{{ 'HOME.NicknameDL'| translate }}</th>
+            <th class="text-center">{{ 'HOME.StateDL'| translate }}</th>
+            <th class="text-center">{{ 'HOME.ActionsDL'| translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -95,12 +95,12 @@
             <td class="text-center">{{ item.TenHS }}</td>
             <td class="text-center">{{ item.nickname }}</td>
             <td class="text-center">
-              <div class="text-center" *ngIf="item.TrangThai==0">Đi</div>
-              <div class="text-center" *ngIf="item.TrangThai==1">Xuống</div>
-              <div class="text-center" *ngIf="item.TrangThai==2">Lên</div>
-              <div class="text-center" *ngIf="item.TrangThai==3">Chuyển</div>
-              <div class="text-center" *ngIf="item.TrangThai==4">Nghỉ</div>
-              <div class="text-center" *ngIf="item.TrangThai==5">Vắng</div>
+              <div class="text-center" *ngIf="item.TrangThai==0">{{ 'HOME.GoingDL'| translate }}</div>
+              <div class="text-center" *ngIf="item.TrangThai==1">{{ 'HOME.GotOffDL'| translate }}</div>
+              <div class="text-center" *ngIf="item.TrangThai==2">{{ 'HOME.BoardingDL'| translate }}</div>
+              <div class="text-center" *ngIf="item.TrangThai==3">{{ 'HOME.ChangeDL'| translate }}</div>
+              <div class="text-center" *ngIf="item.TrangThai==4">{{ 'HOME.Absent1OfWaitStudentDL'| translate }}</div>
+              <div class="text-center" *ngIf="item.TrangThai==5">{{ 'HOME.Absent2OfWaitStudentDL'| translate }}</div>
             </td>
             
             <td class="text-center">

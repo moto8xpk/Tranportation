@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { marker } from 'src/model/market.model';
 import { MouseEvent } from '@agm/core';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-online-dashboard',
@@ -35,7 +37,9 @@ export class OnlineDashboardComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+
+   }
 
   ngOnInit() {
   }
