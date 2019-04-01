@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgSelectConfig, NgOption } from '@ng-select/ng-select';
 import { TranslateService } from '@ngx-translate/core';
+import { MatRadioChange } from '@angular/material';
 
 @Component({
   selector: 'app-import',
@@ -8,12 +9,16 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./import.component.css']
 })
 export class ImportComponent implements OnInit {
-
+  @Input()
+  checked: Boolean 
+  
   eventOnselectImage: any;
   list:string[]=['Hoạt động - Activity ','Game','Ngoại khóa','Danh Sách Tham Gia Hoạt Động','Danh sách Học Sinh '];
   listFile:string[]=['Text Data','File'];
   // data:any="";
-  labelPosition = 'after';
+  checkedData = 'Text Data';
+
+  typeOfImportData:Boolean=true;
 
   constructor(private config: NgSelectConfig,private translate: TranslateService) {
     this.config.notFoundText = 'Custom not found';
@@ -36,4 +41,19 @@ export class ImportComponent implements OnInit {
       }
     }
   }
+
+  radioChange(event: MatRadioChange) {
+    // this.filter['property'] = event.value;
+    if (typeof(event.value)!=null) {
+      if (event.value==this.listFile[0]) {
+        this.typeOfImportData=true;
+        console.log(1);
+      }
+      else{
+        this.typeOfImportData=false;
+        console.log(2);
+      }
+    } 
+    console.log(event.value);
+}
 }

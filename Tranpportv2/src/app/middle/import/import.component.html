@@ -11,10 +11,12 @@
 
         <section class="example-section">
             <label> {{ 'HOME.TypeOfFileImport'| translate }}:</label>
-            <mat-radio-group id="radio-box-file" [(ngModel)]="labelPosition1">
-                <mat-radio-button class="example-margin" value="Text Data">{{ 'HOME.TextDataImport'| translate }}</mat-radio-button>
-                <mat-radio-button class="example-margin" value="File">{{ 'HOME.FileImport'| translate }}</mat-radio-button>
+            <mat-radio-group id="radio-box-file" [(ngModel)]="checkedData" (change)="radioChange($event)">
+                <mat-radio-button class="example-margin" value="Text Data"  >{{ 'HOME.TextDataImport'| translate }}</mat-radio-button>
+                <mat-radio-button class="example-margin" value="File" >{{ 'HOME.FileImport'| translate }}</mat-radio-button>
+                <!-- <mat-radio-button *ngFor="let type of listFile" class="example-margin" value="{{type}}" [checked]="type=='Text Data'" >{{type}}</mat-radio-button> -->
             </mat-radio-group>
+            
         </section>
 
         <div class="form-group">
@@ -28,8 +30,8 @@
               </div> -->
         </div>
 
-        <div class="form-group">
-                <label for="exampleInputEmail1">{{ 'HOME.DATAImport'| translate }}:</label>
+        <div *ngIf="typeOfImportData" class="form-group" >
+                <label  for="exampleInputEmail1">{{ 'HOME.DATAImport'| translate }}:</label>
                 <textarea  type="text" class="form-control" id="idDoiTuong" name="idDoiTuong" required placeholder="
                 1000,316404.1095890411
                 1500,384297.9452054794
@@ -53,8 +55,8 @@
                   </div> -->
             </div>
 
-        <p>
-            <input id="upload-file-input" type='file' (change)="onSelectFile($event)">
+        <p *ngIf="!typeOfImportData">
+            <input id="upload-file-input"  type='file' (change)="onSelectFile($event)">
         </p>
 
         <p class="text-center">
