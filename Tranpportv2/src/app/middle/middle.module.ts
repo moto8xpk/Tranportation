@@ -38,7 +38,7 @@ import { ShareModuleModule } from '../share-module/share-module.module';
     NgbModule,
     NgxMaterialTimepickerModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDwZt492jB0OIYFFlIc_DQwylNquzyavnU&amp'
+      apiKey: ''
     }),
     ShareModuleModule
   ],
